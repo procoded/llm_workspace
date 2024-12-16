@@ -1,19 +1,23 @@
-Python Project Conventions
+# Python Project Conventions
 
-Engineering Conventions
+## Engineering Conventions
 
-When writing code, follow these conventions.
+When writing code, follow these conventions:
 
-Prioritize simplicity and readability: Write simple, verbose code instead of terse, compact, or dense code to improve maintainability and clarity.
+### Code Style
 
-Document untested code: If a function does not have a corresponding test, clearly indicate this with comments or tracking in an issue.
+Code should prioritize simplicity and readability. Write simple, verbose code instead of terse, compact, or dense code to improve maintainability and clarity.
 
-Avoid mocking in tests: Write tests that rely on actual data or realistic test cases to ensure reliability and avoid fragility.
+### Testing
 
-Project Structure
+* Document untested code by clearly indicating functions without corresponding tests using comments or issue tracking
+* Avoid mocking in tests - write tests that rely on actual data or realistic test cases to ensure reliability and avoid fragility
 
-Maintain the following folder structure for consistency and scalability.
+## Project Structure
 
+Maintain the following folder structure for consistency and scalability:
+
+```
 project_root/
 |
 |-- src/        # Application source code
@@ -29,36 +33,30 @@ project_root/
 |-- requirements.txt  # Dependencies
 |-- README.md   # Project documentation
 |-- .gitignore  # Git ignore rules
+```
 
-Explanation
+## Directory Explanations
 
-src/:
+### src/
 
-Contains all the core application source code. This structure avoids cluttering the root directory and makes imports explicit.
+Contains all the core application source code. This structure avoids cluttering the root directory and makes imports explicit. Each Python module or package within src/ should focus on a specific functionality or feature.
 
-Each Python module or package within src/ should focus on a specific functionality or feature.
+### tests/
 
-tests/:
+Stores all tests, including unit tests, integration tests, and end-to-end tests. Tests should be organized to mirror the structure of the src/ directory for consistency. All test files and methods must follow the pytest naming convention (e.g., files start with test_ and test methods start with test_).
 
-Stores all tests, including unit tests, integration tests, and end-to-end tests.
-
-Organize test files to mirror the structure of the src/ directory for consistency.
-
-Ensure that all test files and methods follow the pytest naming convention (e.g., files start with test_ and test methods start with test_).
-
-main.py:
+### main.py
 
 Serves as the entry point of the application. Typically used to initialize the application and handle command-line interactions if applicable.
 
-requirements.txt:
+### requirements.txt
 
-Lists all the Python dependencies required for the project. Use pip freeze > requirements.txt to generate this file. Include pytest as a development dependency for running tests.
+Lists all the Python dependencies required for the project. Generate this file using `pip freeze > requirements.txt`. Include pytest as a development dependency for running tests.
 
-README.md:
+### README.md
 
 Contains project documentation, including setup instructions, usage examples, and any other relevant information.
 
-.gitignore:
+### .gitignore
 
 Specifies intentionally untracked files to ignore in the Git repository, such as temporary files, build artifacts, and virtual environments.
-
