@@ -1,0 +1,1169 @@
+{
+  "public.spatial_ref_sys": {
+    "columns": {
+      "srid": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "auth_name": {
+        "type": "VARCHAR(256)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "auth_srid": {
+        "type": "INTEGER",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "srtext": {
+        "type": "VARCHAR(2048)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "proj4text": {
+        "type": "VARCHAR(2048)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.databasechangelog": {
+    "columns": {
+      "id": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "author": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "filename": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "dateexecuted": {
+        "type": "TIMESTAMP",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "orderexecuted": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "exectype": {
+        "type": "VARCHAR(10)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "md5sum": {
+        "type": "VARCHAR(35)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "description": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "comments": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "tag": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "liquibase": {
+        "type": "VARCHAR(20)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "contexts": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "labels": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "deployment_id": {
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.databasechangeloglock": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "locked": {
+        "type": "BOOLEAN",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "lockgranted": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "lockedby": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.todos": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "title": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "completed": {
+        "type": "BOOLEAN",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "user_id": {
+        "type": "INTEGER",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.users.id')"
+        ]
+      },
+      "created_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "column_id": {
+        "type": "INTEGER",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.kanban_columns.id')"
+        ]
+      }
+    },
+    "indexes": []
+  },
+  "public.kanban_columns": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "name": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "color": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.users": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "first_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "last_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "email": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "is_active": {
+        "type": "BOOLEAN",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "is_google_account": {
+        "type": "BOOLEAN",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "password": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "avatar_url": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.counties": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "object_id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "dnr_region_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "dnr_cnty_code": {
+        "type": "INTEGER",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "county_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "county_fips_code": {
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "shape_area": {
+        "type": "NUMERIC(20, 8)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "shape_length": {
+        "type": "NUMERIC(20, 8)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "geometry": {
+        "type": "GEOMETRY(MULTIPOLYGON, 4326)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.properties": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "object_id": {
+        "type": "BIGINT",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "state_id": {
+        "type": "VARCHAR(20)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "parcel_id": {
+        "type": "VARCHAR(20)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "tax_parcel_id": {
+        "type": "VARCHAR(20)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "tax_roll_year": {
+        "type": "VARCHAR(4)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "owner_name_1": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "owner_name_2": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "postal_address": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "site_address": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "add_num_prefix": {
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "add_num": {
+        "type": "VARCHAR(20)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "add_num_suffix": {
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "street_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "street_type": {
+        "type": "VARCHAR(50)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "place_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "zip_code": {
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "school_district": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "school_district_no": {
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "assessed_value_total": {
+        "type": "NUMERIC(15, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "land_value": {
+        "type": "NUMERIC(15, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "improvement_value": {
+        "type": "NUMERIC(15, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "forest_land_value": {
+        "type": "NUMERIC(15, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "estimated_market_value": {
+        "type": "NUMERIC(15, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "net_property_tax": {
+        "type": "NUMERIC(10, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "gross_property_tax": {
+        "type": "NUMERIC(10, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "property_class": {
+        "type": "VARCHAR(50)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "assessed_acres": {
+        "type": "NUMERIC(10, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "deeded_acres": {
+        "type": "NUMERIC(10, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "gis_acres": {
+        "type": "NUMERIC(10, 2)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "county_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "longitude": {
+        "type": "NUMERIC(12, 8)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "latitude": {
+        "type": "NUMERIC(12, 8)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "shape_length": {
+        "type": "NUMERIC(20, 8)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "shape_area": {
+        "type": "NUMERIC(20, 8)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "load_date": {
+        "type": "DATE",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "geometry": {
+        "type": "GEOMETRY(MULTIPOLYGON, 4326)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "county_id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.counties.id')"
+        ]
+      }
+    },
+    "indexes": [
+      {
+        "name": "idx_state_id",
+        "columns": [
+          "state_id"
+        ]
+      },
+      {
+        "name": "idx_owner_name_1",
+        "columns": [
+          "owner_name_1"
+        ]
+      },
+      {
+        "name": "idx_parcel_id",
+        "columns": [
+          "parcel_id"
+        ]
+      },
+      {
+        "name": "idx_geometry",
+        "columns": [
+          "geometry"
+        ]
+      },
+      {
+        "name": "idx_tax_parcel_id",
+        "columns": [
+          "tax_parcel_id"
+        ]
+      }
+    ]
+  },
+  "public.addresses": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "object_id": {
+        "type": "INTEGER",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "full_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "label_name": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "num_pre": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "num": {
+        "type": "INTEGER",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "pre_dir": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "street": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "type": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "post_dir": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "class": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "county": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "post_office": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "landmark": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "cvt": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "property_id": {
+        "type": "INTEGER",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.properties.id')"
+        ]
+      },
+      "geometry": {
+        "type": "GEOMETRY(POINT, 4326)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.saved_properties": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "user_id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.users.id')"
+        ]
+      },
+      "property_id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.properties.id')"
+        ]
+      },
+      "saved_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.vendors": {
+    "columns": {
+      "id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "name": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "address": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "contact": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.receipts": {
+    "columns": {
+      "id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "img_url": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "category": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "vendor_id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.vendors.id')"
+        ]
+      },
+      "transaction_details_id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.transaction_details.id')"
+        ]
+      },
+      "summary_id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.summaries.id')"
+        ]
+      }
+    },
+    "indexes": []
+  },
+  "public.summaries": {
+    "columns": {
+      "id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "subtotal": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "tax": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "total_amount": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "discounts": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.transaction_details": {
+    "columns": {
+      "id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "date": {
+        "type": "DATE",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "time": {
+        "type": "TIME",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "receipt_number": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "payment_method": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  },
+  "public.items": {
+    "columns": {
+      "id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "name": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "quantity": {
+        "type": "DOUBLE PRECISION",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "unit": {
+        "type": "VARCHAR(10)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "unit_price": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "total_price": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "receipt_id": {
+        "type": "BIGINT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.receipts.id')"
+        ]
+      }
+    },
+    "indexes": []
+  },
+  "public.leads": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "first_name": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "last_name": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "email": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "phone": {
+        "type": "VARCHAR(20)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "status": {
+        "type": "VARCHAR(50)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "follow_up_date": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "notes": {
+        "type": "TEXT",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "user_id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.users.id')"
+        ]
+      },
+      "created_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "updated_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": [
+      {
+        "name": "idx_leads_follow_up_date",
+        "columns": [
+          "follow_up_date"
+        ]
+      },
+      {
+        "name": "idx_leads_status",
+        "columns": [
+          "status"
+        ]
+      }
+    ]
+  },
+  "public.issues": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "issue_type": {
+        "type": "VARCHAR(5)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "summary": {
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "description": {
+        "type": "TEXT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "priority": {
+        "type": "VARCHAR(6)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "assignee": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "analysis_results": {
+        "type": "JSONB",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "created_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "updated_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": [
+      {
+        "name": "idx_issues_created_at",
+        "columns": [
+          "created_at"
+        ]
+      },
+      {
+        "name": "idx_issues_priority",
+        "columns": [
+          "priority"
+        ]
+      },
+      {
+        "name": "idx_issues_type",
+        "columns": [
+          "issue_type"
+        ]
+      }
+    ]
+  },
+  "public.github_tokens": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "user_id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": [
+          "ForeignKey('public.users.id')"
+        ]
+      },
+      "access_token": {
+        "type": "TEXT",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "scope": {
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "created_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      },
+      "updated_at": {
+        "type": "TIMESTAMP",
+        "nullable": true,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": [
+      {
+        "name": "idx_github_tokens_user",
+        "columns": [
+          "user_id"
+        ]
+      }
+    ]
+  },
+  "public.test_table": {
+    "columns": {
+      "id": {
+        "type": "INTEGER",
+        "nullable": false,
+        "primary_key": true,
+        "foreign_keys": []
+      },
+      "name": {
+        "type": "VARCHAR(50)",
+        "nullable": false,
+        "primary_key": false,
+        "foreign_keys": []
+      }
+    },
+    "indexes": []
+  }
+}
