@@ -3,6 +3,7 @@ notion-client==2.0.0
 SQLAlchemy>=1.4
 psycopg2>=2.9  # For PostgreSQL
 geoalchemy2>=0.14  # For PostGIS support
-pydantic-ai
+pydantic>=2.0.0
 pandas>=2.0.0  # For data handling
 google-generativeai>=0.3.0
+sqlalchemy>=1.4.0
